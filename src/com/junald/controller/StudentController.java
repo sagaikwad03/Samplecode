@@ -60,6 +60,8 @@ public class StudentController extends HttpServlet {
         student.setYear( Integer.parseInt( request.getParameter( "year" ) ) );
         String studentId = request.getParameter("studentId");
  
+        System.out.println(studentId);
+        
         if( studentId == null || studentId.isEmpty() )
             dao.addStudent(student);
         else {
@@ -70,4 +72,6 @@ public class StudentController extends HttpServlet {
         request.setAttribute("students", dao.getAllStudents());
         view.forward(request, response);
     }
+    
+    
 }
